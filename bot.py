@@ -57,20 +57,33 @@ rag_chain = configure_qa_rag_chain(
 # Streamlit UI
 styl = f"""
 <style>
+    .stChatFloatingInputContainer {{
+        bottom: 180px; /* Increase the bottom value to move the input container up */
+        background: rgba(255, 255, 255, 0.7); /* Make it more translucent */
+        border-radius: 15px; /* Add rounded corners */
+        width: 80%; /* Make it narrower */
+    }}
     /* not great support for :has yet (hello FireFox), but using it for now */
     .element-container:has([aria-label="Select RAG mode"]) {{
       position: fixed;
-      bottom: 33px;
-      background: white;
+      bottom: 2px; /* Increase the bottom value to move the selector up */
+      left: 50%; /* Center the selector */
+      transform: translateX(-50%); /* Center the selector */
+      background: rgba(255, 255, 255, 0.7); /* Make it more translucent */
       z-index: 101;
-    }}
-    .stChatFloatingInputContainer {{
-        bottom: 20px;
+      color: black; /* Add this line to ensure text is visible in dark mode */
+      display: flex; /* Add this line to make the text and toggle appear on the same line */
+      align-items: center; /* Add this line to center the text and toggle vertically */
+      border-radius: 15px; /* Add rounded corners */
+      height: 50%; /* Make it shorter */
     }}
 
     /* Generate ticket text area */
     textarea[aria-label="Description"] {{
         height: 200px;
+        color: black; /* Add this line to ensure text is visible in dark mode */
+        border-radius: 15px; /* Add rounded corners */
+        width: 80%; /* Make it narrower */
     }}
 </style>
 """

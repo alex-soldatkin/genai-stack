@@ -172,8 +172,8 @@ def configure_qa_rag_chain(llm, embeddings, embeddings_store_url, username, pass
 
     kg_qa = RetrievalQAWithSourcesChain(
         combine_documents_chain=qa_chain,
-        retriever=kg.as_retriever(search_kwargs={"k": 2}),
-        reduce_k_below_max_tokens=False,
+        retriever=kg.as_retriever(search_kwargs={"k": 3}),
+        reduce_k_below_max_tokens=True,
         max_tokens_limit=3375,
     )
     return kg_qa
